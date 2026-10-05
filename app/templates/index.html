@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Music Downloader</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main class="card">
+      <div class="brand-row"><span class="signal">◉</span><p class="eyebrow">AUDIO EXTRACTION CONSOLE</p></div>
+      <h1>Music<span>//</span>Downloader</h1>
+      <p class="intro">Queue an approved source, convert it to MP3, then collect every track in one ZIP archive.</p>
+
+      <form id="download-form">
+        <label for="url">Video or playlist URL</label>
+        <input id="url" name="url" type="url" placeholder="https://www.youtube.com/watch?v=..." required>
+
+        <fieldset>
+          <legend>Download</legend>
+          <label class="option"><input type="radio" name="mode" value="single" checked> Single track</label>
+          <label class="option"><input type="radio" name="mode" value="playlist"> Playlist</label>
+        </fieldset>
+
+        <button id="submit-button" type="submit"><span>Initialize download</span><b>→</b></button>
+      </form>
+
+      <section id="status" class="status" hidden aria-live="polite">
+        <div class="status-heading"><p id="status-message"></p><strong id="song-count">0 / — tracks</strong></div>
+        <div class="progress-shell"><div id="progress-bar" class="progress-bar"></div></div>
+        <div class="completed-panel"><div class="panel-label">COMPLETED TRACKS</div><ol id="files" class="files"></ol></div>
+        <a id="archive-link" class="archive-link" hidden>Download ZIP archive <span>↓</span></a>
+      </section>
+
+      <p class="notice">Allowed sources: {{ allowed_hosts }}. Download only content you are permitted to download. Files are temporary.</p>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

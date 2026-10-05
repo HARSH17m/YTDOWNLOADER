@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: personal-music-downloader
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ALLOWED_HOSTS
+        value: youtube.com,youtu.be
+      - key: RETENTION_MINUTES
+        value: "60"
